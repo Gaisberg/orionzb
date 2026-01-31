@@ -1,0 +1,69 @@
+Container Hashes
+Search for a list of torrent and nzb container SHA1 hashes.
+
+Hashes are already returned from the stream search endpoint and there is no need to make an additional request to this endpoint to retrieve them. This endpoint is only for retrieving details of torrents and nzbs that were not retrieved from Orion, but from some external scraper.
+
+Requests are subject to the user's daily hash limit.
+Parameters
+Name	Required	Type	Options	Example	Description
+mode
+Yes
+Enum
+container
+container
+The API mode which should be set to container for this query.
+action
+Yes
+Enum
+hash
+hash
+The API action which should be set to hash for this query.
+keyapp
+Yes
+String
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+The app API key. Either use the app and user API keys, or the authentication token.
+keyuser
+Yes
+String
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+The user API key. Either use the app and user API keys, or the authentication token.
+token
+Yes
+String
+X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2
+The authentication token. Either use the app and user API keys, or the authentication token.
+links
+Yes
+List
+["https://www2.yggtorrent.ch/engine/ download_torrent?id=459370", "https://abnzb.com/api?t=get& id=716b6d95f2c61b1c57edbace625ac739"]
+A list of links to retrieve hashes for. Currently only links pointing to torrent and usenet containers are supported. Links submitted as GET or POST parameters must be URL-encoded. Links submitted as JSON parameters do not have to be URL-encoded.
+Request
+API	
+URL:	https://api.orionoid.com
+Body:	keyapp=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&keyuser=BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&mode=container&action=hash&links[]=https%3A%2F%2Fwww2.yggtorrent.ch%2Fengine%2Fdownload_torrent%3Fid%3D459370&links[]=https%3A%2F%2Fabnzb.com%2Fapi%3Ft%3Dget%26id%3Dfaf1de51f8a3762b7c3f893becdcceb6
+Response
+{
+name: "Orion API",
+version: "4.0.0",
+result: {
+status: "success"
+},
+data: {
+hashes: {
+https://www2.yggtorrent.ch/engine/download_torrent?id=459370: "db4586385cd95941cd41199f11e5067c39108ed6"
+},
+count: {
+requested: 2,
+retrieved: 1
+},
+requests: {
+total: 2563,
+daily: {
+limit: 10000,
+used: 6852,
+remaining: 3148
+}
+}
+}
+}

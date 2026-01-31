@@ -1,0 +1,44 @@
+Container Download
+Download a torrent or nzb container file.
+
+Requests are subject to the user's daily container limit.
+Parameters
+Name	Required	Type	Options	Example	Description
+mode
+Yes
+Enum
+container
+container
+The API mode which should be set to container for this query.
+action
+Yes
+Enum
+download
+download
+The API action which should be set to download for this query.
+keyapp
+Yes
+String
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+The app API key. Either use the app and user API keys, or the authentication token.
+keyuser
+Yes
+String
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+The user API key. Either use the app and user API keys, or the authentication token.
+token
+Yes
+String
+X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2
+The authentication token. Either use the app and user API keys, or the authentication token.
+id
+Yes
+String
+https://abnzb.com/api?t=get& id=faf1de51f8a3762b7c3f893becdcceb6
+An ID, SHA1 hash, or source link of the container. Links submitted as GET or POST parameters must be URL-encoded. Links submitted as JSON parameters do not have to be URL-encoded.
+Request
+API	
+URL:	https://api.orionoid.com
+Body:	keyapp=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&keyuser=BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&mode=container&action=download&id=https%3A%2F%2Fabnzb.com%2Fapi%3Ft%3Dget%26id%3Dfaf1de51f8a3762b7c3f893becdcceb6
+Response
+The request returns the binary data of the container file on success. On failure, such as the container not exisiting, or the daily limit being reached, a standard JSON response with the error will be returned. Check the response's content type to determine the success or failure of the download.

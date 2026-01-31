@@ -1,0 +1,43 @@
+{
+  "name": "orionzb",
+  "version": "1.0.0",
+  "description": "Newznab API wrapper for Orionoid",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint src --ext .ts",
+    "test": "jest"
+  },
+  "keywords": [
+    "newznab",
+    "orionoid",
+    "usenet",
+    "nzb",
+    "indexer"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/swagger": "^9.6.1",
+    "@fastify/swagger-ui": "^5.2.5",
+    "@viren070/parse-torrent-title": "^0.6.1",
+    "dotenv": "^16.4.1",
+    "fast-xml-parser": "^4.3.4",
+    "fastify": "^5.7.2",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

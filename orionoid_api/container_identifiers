@@ -1,0 +1,84 @@
+Container Identifiers
+Search for a list of SHA1 hashes and segment IDs of torrent and nzb containers. This function is a combination of the container hash and segment functions. More details can be found under the hash and segment sections.
+
+Hashes are already returned from the stream search endpoint and there is no need to make an additional request to this endpoint to retrieve them. This endpoint is only for retrieving details of torrents and nzbs that were not retrieved from Orion, but from some external scraper.
+
+Requests are subject to the user's daily hash limit.
+Parameters
+Name	Required	Type	Options	Example	Description
+mode
+Yes
+Enum
+container
+container
+The API mode which should be set to container for this query.
+action
+Yes
+Enum
+identifier
+identifier
+The API action which should be set to identifier for this query.
+keyapp
+Yes
+String
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+The app API key. Either use the app and user API keys, or the authentication token.
+keyuser
+Yes
+String
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+The user API key. Either use the app and user API keys, or the authentication token.
+token
+Yes
+String
+X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2X1Y2
+The authentication token. Either use the app and user API keys, or the authentication token.
+links
+Yes
+List
+["https://abnzb.com/api?t=get& id=716b6d95f2c61b1c57edbace625ac739"]
+A list of links to retrieve identifiers for. Currently only links pointing to torrent and usenet containers are supported. Links submitted as GET or POST parameters must be URL-encoded. Links submitted as JSON parameters do not have to be URL-encoded.
+Request
+API	
+URL:	https://api.orionoid.com
+Body:	keyapp=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&keyuser=BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&mode=container&action=identifier&links[]=https%3A%2F%2Fwww2.yggtorrent.ch%2Fengine%2Fdownload_torrent%3Fid%3D459370&links[]=https%3A%2F%2Fabnzb.com%2Fapi%3Ft%3Dget%26id%3Dfaf1de51f8a3762b7c3f893becdcceb6
+Response
+{
+name: "Orion API",
+version: "4.0.0",
+result: {
+status: "success"
+},
+data: {
+identifiers: {
+https://www2.yggtorrent.ch/engine/download_torrent?id=459370: {
+hash: "db4586385cd95941cd41199f11e5067c39108ed6"
+},
+https://abnzb.com/api?t=get&id=faf1de51f8a3762b7c3f893becdcceb6: {
+hash: "34ad6d53b9742cb47f76f47340ef5484242e936d",
+segment: {
+first: "l7WiM0kYQz-CAdePab_FlXi0A1-A@u09aA2WeV.wtn",
+largest: "5JVmZeucB0aZhdaVAs2sp@n-ota.ImI",
+list: [
+"l7WiM0kYQz-CAdePab_FlXi0A1-A@u09aA2WeV.wtn",
+"T4IvlYiqL1d-qRBRN43KS@1mB7E.CyE",
+"n4_J150R4IYdO4lmSqUTiNFWjB-@od3GbD5v._ZN",
+"oZjuqGJsT_HMn_4E8QDDvH@iQIjvc.Po3"
+]
+}
+}
+},
+count: {
+requested: 2,
+retrieved: 2
+},
+requests: {
+total: 2563,
+daily: {
+limit: 10000,
+used: 6852,
+remaining: 3148
+}
+}
+}
+}

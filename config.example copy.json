@@ -1,0 +1,22 @@
+{
+    "orionoid": {
+        "appKey": "YOUR_ORIONOID_APP_KEY",
+        "userKey": "YOUR_ORIONOID_USER_KEY",
+        "token": ""
+    },
+    "server": {
+        "port": 5000,
+        "host": "0.0.0.0",
+        "baseUrl": "http://localhost:5000"
+    },
+    "newznab": {
+        "apiKey": "YOUR_NEWZNAB_API_KEY",
+        "serverName": "OrionZB",
+        "serverDescription": "Orionoid Newznab API"
+    },
+    "features": {
+        "cacheTTL": 86400,
+        "maxResults": 100,
+        "defaultResults": 50
+    }
+}
