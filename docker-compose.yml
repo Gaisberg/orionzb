@@ -1,0 +1,19 @@
+services:
+  orionzb:
+    image: ghcr.io/gaisberg/orionzb:latest
+    container_name: orionzb
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - ORIONOID_APP_KEY=YOUR_ORIONOID_APP_KEY
+      - ORIONOID_USER_KEY=YOUR_ORIONOID_USER_KEY
+      - ORIONOID_TOKEN=YOUR_ORIONOID_TOKEN
+      - NEWZNAB_API_KEY=YOUR_SUPER_SECRET_API_KEY
+      - NEWZNAB_SERVER_NAME=OrionZB
+      - NEWZNAB_SERVER_DESCRIPTION=Orionoid Newznab API
+      - CACHE_TTL=86400
+      - MAX_RESULTS=100
+      - DEFAULT_RESULTS=50
+    restart: unless-stopped
