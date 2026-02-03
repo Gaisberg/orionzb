@@ -3,29 +3,35 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Install pnpm
+RUN npm install -g pnpm
+
 # Copy package files
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml* ./
 COPY tsconfig.json ./
 
 # Install all dependencies
-RUN npm install
+RUN pnpm install --frozen-lockfile
 
 # Copy source code
 COPY src ./src
 
 # Build the project
-RUN npm run build
+RUN pnpm run build
 
 # Production stage
 FROM node:20-alpine
 
 WORKDIR /app
 
+# Install pnpm
+RUN npm install -g pnpm
+
 # Copy package files
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml* ./
 
 # Install production dependencies only
-RUN npm install --omit=dev
+RUN pnpm install --prod --frozen-lockfile
 
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
@@ -34,4 +40,4 @@ COPY --from=builder /app/dist ./dist
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]
