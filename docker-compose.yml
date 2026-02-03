@@ -7,6 +7,7 @@ services:
     environment:
       - PORT=3000
       - NODE_ENV=production
+      - SERVER_BASE_URL=http://localhost:3000
       - ORIONOID_APP_KEY=YOUR_ORIONOID_APP_KEY
       - ORIONOID_USER_KEY=YOUR_ORIONOID_USER_KEY
       - ORIONOID_TOKEN=YOUR_ORIONOID_TOKEN
