@@ -4,7 +4,6 @@ A Newznab-compatible API server that wraps the Orionoid API, enabling integratio
 
 Only usenet support and no limit monitoring is implemented. Use at your own risk.
 
-
 ## License
 
 MIT
