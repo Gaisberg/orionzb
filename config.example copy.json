@@ -1,8 +1,6 @@
 {
     "orionoid": {
-        "appKey": "YOUR_ORIONOID_APP_KEY",
         "userKey": "YOUR_ORIONOID_USER_KEY",
-        "token": ""
     },
     "server": {
         "port": 5000,

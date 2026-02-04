@@ -7,7 +7,6 @@ dotenv.config();
 export interface OrionoidConfig {
     appKey?: string;
     userKey?: string;
-    token?: string;
 }
 
 export interface ServerConfig {
@@ -51,9 +50,8 @@ export function loadConfig(): Config {
     // Fall back to environment variables
     return {
         orionoid: {
-            appKey: process.env.ORIONOID_APP_KEY || '',
+            appKey: 'TELDDHP84ND8GURAPJLUDBLQMULEAAPG',
             userKey: process.env.ORIONOID_USER_KEY,
-            token: process.env.ORIONOID_TOKEN,
         },
         server: {
             port: parseInt(process.env.SERVER_PORT || '5000', 10),
@@ -78,12 +76,9 @@ export function loadConfig(): Config {
  * Validate configuration
  */
 export function validateConfig(config: Config): void {
-    // Check if we have either token OR (appKey + userKey)
-    const hasToken = !!config.orionoid.token;
-    const hasKeys = !!config.orionoid.appKey && !!config.orionoid.userKey;
-
-    if (!hasToken && !hasKeys) {
-        throw new Error('Either Orionoid token OR (app key + user key) is required');
+    // Check if we have userKey (appKey is hardcoded or provided)
+    if (!config.orionoid.userKey) {
+        throw new Error('Orionoid user key is required');
     }
 
     if (!config.newznab.apiKey) {

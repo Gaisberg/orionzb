@@ -8,7 +8,6 @@ export interface OrionoidSearchParams {
     action: 'retrieve';
     keyapp?: string;
     keyuser?: string;
-    token?: string;
     type: 'movie' | 'show';
     query?: string;
     idorion?: string;

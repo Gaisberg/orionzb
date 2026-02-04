@@ -11,12 +11,10 @@ const ORIONOID_API_URL = 'https://api.orionoid.com';
 export class OrionoidClient {
     private appKey?: string;
     private userKey?: string;
-    private token?: string;
 
     constructor(config: OrionoidConfig) {
         this.appKey = config.appKey;
         this.userKey = config.userKey;
-        this.token = config.token;
     }
 
     /**
@@ -223,11 +221,7 @@ export class OrionoidClient {
     /**
      * Get authentication parameters
      */
-    private getAuthParams(): { token: string } | { keyapp: string; keyuser: string } {
-        if (this.token) {
-            return { token: this.token };
-        }
-
+    private getAuthParams(): { keyapp: string; keyuser: string } {
         if (this.appKey && this.userKey) {
             return {
                 keyapp: this.appKey,
