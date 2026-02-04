@@ -20,6 +20,7 @@
   ],
   "author": "",
   "license": "MIT",
+  "funding": "https://buymeacoffee.com/gaisberg",
   "dependencies": {
     "@fastify/swagger": "^9.6.1",
     "@fastify/swagger-ui": "^5.2.5",

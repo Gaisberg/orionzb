@@ -21,6 +21,10 @@ The easiest way to run the application is using Docker Compose:
 docker-compose up -d
 ```
 
+## Support
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-orange?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/gaisberg)
+
 ## License
 
 MIT
